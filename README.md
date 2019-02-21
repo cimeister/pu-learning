@@ -6,7 +6,7 @@ This is a reproducing code for non-negative PU learning [1] and unbiased PU lear
 Dataset is MNIST [3] preprocessed in such a way that even digits form the P class and odd digits form the N class.
 The default setting is 1000 P data and 59000 U data of MNIST, and the class prior is the ratio of P class data in U data.
 
-* Currently, the non-negative risk estimator does not seem to be working. If anyone wants to take a look and finds something wrong, please creat a PR!!
+* Currently, the non-negative risk estimator does not seem to be working. If anyone wants to take a look and finds something wrong, please create a PR!!
 
 ## Requirements
 * Python 3
@@ -16,7 +16,7 @@ The default setting is 1000 P data and 59000 U data of MNIST, and the class prio
 ## Quick start
 You can run an example code of MNIST for comparing the performance of nnPU learning and uPU learning on GPU.
 
-    python run_classifier.py --data_dir=. --output_dir=model_file
+    python run_classifier.py --data_dir=. --output_dir=model_file --do_train
 
 You can see additional options by adding ```--help```.
 
