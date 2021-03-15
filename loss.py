@@ -27,9 +27,9 @@ class PULoss(nn.Module):
             self.prior = self.prior.cuda()
         n_positive, n_unlabeled = torch.max(self.min_count, torch.sum(positive)), torch.max(self.min_count, torch.sum(unlabeled))
         
-        y_positive = self.loss_func(positive*inp)
-        y_positive_inv = self.loss_func(-positive*inp)
-        y_unlabeled = self.loss_func(-unlabeled*inp)
+        y_positive = self.loss_func(positive*inp) * positive
+        y_positive_inv = self.loss_func(-positive*inp) * positive
+        y_unlabeled = self.loss_func(-unlabeled*inp) * unlabeled
 
         positive_risk = self.prior * torch.sum(y_positive)/ n_positive
         negative_risk = - self.prior *torch.sum(y_positive_inv)/ n_positive + torch.sum(y_unlabeled)/n_unlabeled
